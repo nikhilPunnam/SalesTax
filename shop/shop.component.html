@@ -1,0 +1,19 @@
+<div class="container">
+  <h3>All available products:</h3>
+  <div class="col-xs-6 col-sm-3" *ngFor="let item of items, let i = index">
+    <div class="panel panel-success">
+      <div class="panel-heading">
+        <h4><strong>{{ items[i].name }}</strong></h4>
+      </div>
+      <div class="panel-body">
+        <h4> {{ items[i].description }} </h4>
+        <h4>Price:<h3><span class="text-danger">{{ items[i].price | currency }}</span></h3></h4>
+        <!-- <h5>{{ items[i].category}} <span *ngIf = "items[i].category !== 'NonTax' ">Apply</span></h5> -->
+        <button class="btn btn-primary active" style="float: right;" (click)="onAddToCart(item)">Add to cart</button>
+      </div>
+    </div>
+  </div>
+  <div id="goToCart">
+    <button class="btn btn-success btn-lg" (click) = "goToCart()" >View your cart</button>
+  </div>
+</div>
