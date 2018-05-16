@@ -42,10 +42,10 @@ nav{
 }
 
 footer{
-    position: sticky;
+    position: relative;
     bottom: 0px;
     margin-bottom:0;
-    margin-top: 10px;
+    margin-top: 30px;
     text-align: center;
     font-size: 18px;
     background-color:#e84914;

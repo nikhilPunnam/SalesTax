@@ -32,10 +32,12 @@ export class CartComponent implements OnInit {
     this.getTotals();
   }
 
+  // toggle button to view receipt
   viewReceipt(){
-    this.viewToggle = true;
+    this.viewToggle = !this.viewToggle;
   }
 
+  // Method generates the tax type applicable to individual item
   generateTax(){
     for(let i in this.cartList){
       if(this.cartList[i].category === "NonTax" && this.cartList[i].imported == false){
@@ -55,6 +57,7 @@ export class CartComponent implements OnInit {
     return this.finalTax;
   }
 
+  // Method calculates total tax for each item
   getTaxAmountOfEachItem(){
     let temp;
     for(let i in this.cartList){
@@ -65,7 +68,7 @@ export class CartComponent implements OnInit {
     return this.taxAmountOfEachItem;
   }
 
-
+  // Method to calculate total prices including tax and other totals to display
   getTotals(){
     let total = 0;
     let amount = 0;
@@ -80,16 +83,7 @@ export class CartComponent implements OnInit {
     this.totalTax = totTax;
   }
 
-  // onQuantityChange(q: number, i: number){
-  //   if( q > 0){ 
-  //   this.tempPrice[i] = this.cartList[i].price + this.cartList[i].price;
-  //   this.tempTax = this.taxAmountOfEachItem[i] + this.taxAmountOfEachItem[i];
-  //   } 
-  //   this.cartList[i].price = this.tempPrice[i];
-  //   this.taxAmountOfEachItem[i] = this.tempTax;
-  //   console.log(this.tempPrice, this.tempTax);
-  // }
-
+  // empties the cart
   emptyCart(){
     let ask = confirm('Are you sure to empty cart?');
     if(ask == true){

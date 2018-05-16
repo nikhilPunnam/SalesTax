@@ -1,9 +1,10 @@
 import { Item } from './item.model';
-import { Injectable, EventEmitter } from '@angular/core';
+import { Injectable} from '@angular/core';
 
 @Injectable()
 export class ProductService{
 
+    cartItems: Item[] = [];
     taxType  = ['NonTax', 'SalesTax', 'DutyTax'];
 
     private items: Item[] = [
@@ -93,21 +94,19 @@ export class ProductService{
         ),
     ]
 
-    cartItems: Item[] = [];
-
+    // Method returns a copy of item list.
     getItem(){
-        return this.items.slice();
+        return this.items.slice(0);
     }
 
+    // Method add the user selected item to the cart
     addItemToCart(item: Item){
         this.cartItems.push(item);
+        alert(item.name + " has been added to the cart.");
         return this.cartItems.slice();
     }
 
-    removeItemFromCart(item: Item){
-        this.cartItems.splice(this.cartItems.indexOf(item), 1);
-    }
-
+    // To empty the cart
     emptyCartItems(){
         this.cartItems.length = 0;
     }

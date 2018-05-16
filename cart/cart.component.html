@@ -30,11 +30,7 @@
         <td>{{ i+1 }}</td>
         <td>{{ cartList[i].name }}</td>
         <td>{{ cartList[i].description }}</td>
-        <!-- <td>
-          <span>
-            <input type="number" [value] = "defaultQuantity" value="quantity.value" (click) = "onQuantityChange(quantity.value, i)" #quantity name="quantity" min="1">
-          </span>
-        </td> -->
+        <!-- <td>{{ quantity }}</td> -->
         <td>{{ cartList[i].price | currency }}</td>
         <td> {{ taxAmountOfEachItem[i] | currency }} </td>
         <td> {{ cartList[i].price + taxAmountOfEachItem[i] | currency }} </td>
@@ -48,7 +44,7 @@
         <button class="btn btn-primary btn-lg" routerLink="/shop">Add more items</button>
       </div>
       <div class="col-md-4">
-        <button class="btn btn-success btn-lg" (click)="viewReceipt()"> View Receipt</button>
+        <button class="btn btn-success btn-lg" (click)="viewReceipt()"> {{ viewToggle? "Hide" : "View" }} Receipt</button>
       </div>
       <div class="col-md-4">
         <button class="btn btn-danger btn-lg" (click)="emptyCart()">Empty your cart</button>
